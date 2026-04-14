@@ -9,6 +9,53 @@ This project is a simulation of a banking system where users can perform various
 - **Database:** MySQL
 - **Testing:** JUnit, Selenium
 
+## System Architecture
+
+### Architecture Overview
+The Banking Automation system follows a **three-tier architecture pattern** designed for scalability, maintainability, and separation of concerns.
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                  Presentation Layer                      │
+│           (HTML, CSS, JavaScript Frontend)               │
+└────────────────────┬────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│                  Application Layer                       │
+│    (Spring Boot REST API & Business Logic)               │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐   │
+│  │  Controllers │  │   Services   │  │ Repositories │   │
+│  └──────────────┘  └───��──────────┘  └──────────────┘   │
+└────────────────────┬────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│                   Data Layer                             │
+│              (MySQL Database)                            │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Component Description
+
+**Frontend Layer:**
+- User interface built with HTML, CSS, and JavaScript
+- Handles user interactions and displays banking operations
+- Communicates with backend via REST API calls
+
+**Application Layer:**
+- **Controllers:** Handle HTTP requests and route them to appropriate services
+- **Services:** Implement business logic for banking operations (authentication, transactions, account management)
+- **Repositories:** Manage database operations and data persistence
+
+**Data Layer:**
+- MySQL database stores user accounts, transaction history, and account information
+- Ensures data integrity and consistency
+
+### Key Features & Components
+- **User Management:** Registration, login, and profile management
+- **Account Management:** Account creation, balance checking, and account information
+- **Transaction System:** Fund transfers, deposits, withdrawals, and transaction history
+- **Security:** User authentication and authorization mechanisms
+
 ## Installation Instructions
 1. Clone the repository: `git clone https://github.com/rbchy/BankingAutomation-ParaBank.git`
 2. Navigate to the project directory: `cd BankingAutomation-ParaBank`
